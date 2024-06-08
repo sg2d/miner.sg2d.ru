@@ -1,0 +1,119 @@
+<html>
+	<HEAD>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SG2D Miner</title>
+		<SCRIPT src="sha256.js"></SCRIPT>
+		<SCRIPT src="main.min.js"></SCRIPT>
+		<link rel="stylesheet" href="main.css">
+	</HEAD>
+	<BODY>
+		<table>
+			<tr>
+				<td style="vertical-align: top">
+					<h3>SG2D Miner Demo of bitcoin mining using the SHA-256 and Web Workers</h3>
+					<table>
+						<tbody>
+							<tr>
+								<td>midstate:</td>
+								<td><INPUT id="resp_midstate" style="width: 500px"/></td>
+							</tr>
+							<tr>
+								<td>data:</td>
+								<td><INPUT id="resp_data" style="width: 500px"/></td>
+							</tr>
+							<tr>
+								<td>hash1:</td>
+								<td><INPUT id="resp_hash1" style="width: 500px"/></td>
+							</tr>
+							<tr>
+								<td>target:</td>
+								<td><INPUT id="resp_target" style="width: 500px"/></td>
+							</tr>
+							<tr>
+								<td>nonce?:</td>
+								<td><INPUT id="golden_ticket" readonly style="width: 100px; background-color: #ddd; border: 1px solid gray;" value="wait..."/></td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
+					Clusters:
+					<input
+						type="range"
+						min="5"
+						max="8"
+						step="1"
+						value="7"
+						id="list_clusters_dimm_pow"
+						list="rangeClustersDimmPow"
+						oninput="inputClustersDimmPow();"
+						onchange="changeClustersDimmPow()"
+						style="width: 240px;"/>
+					<datalist id="rangeClustersDimmPow">
+						<option value="5">1024 (32x32)</option>
+						<option value="6">4096 (64x64)</option>
+						<option value="7">16384 (128x128)</option>
+						<option value="8">65536 (256x256)</option>
+					</datalist>
+					<span id="list_clusters_text" class="list-current-value">7</span>
+					<br/>
+					Workers:
+					<input
+						type="range"
+						min="1"
+						max="32"
+						step="1"
+						value="20"
+						id="list_workers"
+						list="rangeWorkers"
+						oninput="document.querySelector('#workers_text').innerText = this.value;"
+						onchange="changeWorkers()"
+						style="width: 240px;"/>
+					<datalist id="rangeWorkers"></datalist>
+					<span id="workers_text" class="list-current-value">20</span>
+					<button onclick="startMining()" id="start_mining">Start</button>
+					<button onclick="stopMining()" id="stop_mining" disabled>Stop</button>
+					<input type="text" id="remained_time" value="remained time (wait...)" readonly style="text-align: center; width: 150px; font-size: 12px;"/>
+					<br/>
+					<br/>
+					<table id="workers_statistics" class="workers-statistics">
+						<thead>
+							<tr>
+								<th>UID</th>
+								<th rowspan="2">Random cluster, index/nonces</th>
+								<th>Hashes</th>
+								<th>Hash/s</th>
+								<th>Total hashes</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th style="text-align: right">Total:</th>
+								<th><INPUT id="hashes_per_second" class="num" value="0" readonly style="font-weight: bold;"/></th>
+								<th><INPUT id="hashes_core" class="num" value="0" readonly style="font-weight: bold;"/></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>wait...</td>
+								<td><INPUT class="num" value="0" readonly/></td>
+								<td><INPUT class="num" value="0" readonly/></td>
+								<td><INPUT class="num" value="0" readonly/></td>
+							</tr>
+						</tbody>
+					</table>
+					<!--<br/><button onclick="test()" id="test">Test</button> <span id="test_value">&nbsp;</span>-->
+				</td>
+				<td style="vertical-align: top">
+					<table id="fill_statistics" class="fill-statistics">
+						<caption>Visualization of the hash search process</caption>
+						<tbody></tbody>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<hr/>
+		<div style="text-align: left; text-indent: 50px; color: gray;">© <a href="https://sg2d.ru">SG2D.RU</a> 2023-2024 | Donate: BTC <img src="btc-icon.png" alt="bitcoin icon" width="18px;" style="vertical-align: top"/> <span style="color: goldenrod;">1EaoFmbFUECm4i7qgeng85W6iRLqoBYcHm</span></div>
+		<hr/>
+	</BODY>
+</HTML>

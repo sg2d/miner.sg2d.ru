@@ -1,0 +1,46 @@
+table.workers-statistics {
+	border: 1px solid gray;
+}
+table.workers-statistics thead tr th:nth-child(2) {
+	width: 150px;
+	vertical-align: top;
+}
+table.workers-statistics tbody tr td {
+	text-align: right;
+}
+table.workers-statistics tbody tr td:nth-child(1) {
+	text-align: center;
+}
+table.workers-statistics input {
+	width: 120px;
+}
+
+table.fill-statistics {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+table.fill-statistics tbody tr td {
+	padding: 0px;
+	width: 6px;
+	height: 6px;
+	background-color: #bbb;
+	border: 1px solid #aaa;
+	font-size: 5px;
+}
+
+input.num {
+	text-align: right;
+}
+
+span.list-current-value {
+	font-size: 12px;
+}
+
+#golden_ticket {
+	text-align: center;
+}
+#golden_ticket.finded {
+	background-color: darkkhaki;
+	color: darkred;
+	font-weight: bold;
+}

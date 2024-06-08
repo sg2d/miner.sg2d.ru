@@ -1,0 +1,8 @@
+_nogit
+*.log
+.env
+/nbproject/
+node_modules/
+/logs/**
+package-lock.json
+
