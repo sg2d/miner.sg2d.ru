@@ -1,0 +1,19 @@
+{
+    "name": "SG2D Miner",
+    "version": "1.0.0",
+    "description": "SG2D Miner",
+    "author": "SG2D <sg2d@yandex.ru> (https://sg2d.ru/)",
+    "homepage": "https://sg2d.ru",
+    "keywords": [
+        "sg2d",
+        "miner",
+        "blockshain",
+        "bitcoin"
+    ],
+    "devDependencies": {
+        "node-static": "latest"
+    },
+    "scripts": {
+        "start": "node server/index.js"
+    }
+}
